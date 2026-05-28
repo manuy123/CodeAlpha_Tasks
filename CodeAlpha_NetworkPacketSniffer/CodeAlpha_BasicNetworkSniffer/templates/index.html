@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Packet Sniffer</title>
+
+    <!-- Auto Refresh Every 2 Seconds -->
+    <meta http-equiv="refresh" content="2">
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #333;
+        }
+
+        tr:nth-child(even){
+            background-color: #222;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Live Network Packet Sniffer</h1>
+
+    <table>
+
+        <tr>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Protocol</th>
+            <th>Source Port</th>
+            <th>Destination Port</th>
+            <th>Packet Size</th>
+        </tr>
+
+        {% for packet in packets %}
+
+        <tr>
+
+            <td>{{ packet.source_ip }}</td>
+            <td>{{ packet.destination_ip }}</td>
+            <td>{{ packet.protocol }}</td>
+            <td>{{ packet.source_port }}</td>
+            <td>{{ packet.destination_port }}</td>
+            <td>{{ packet.packet_size }} bytes</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
